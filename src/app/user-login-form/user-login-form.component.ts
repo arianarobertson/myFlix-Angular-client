@@ -17,8 +17,8 @@ export class UserLoginFormComponent implements OnInit {
   * User data input for login.
   */
   @Input() userData = {
-    userName: '',
-    password: '',
+    Username: '',
+    Password: '',
   };
 
   /**
