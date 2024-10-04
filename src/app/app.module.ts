@@ -65,12 +65,14 @@ import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         UserRegistrationFormComponent,
         UserLoginFormComponent
+        MovieCardComponent
     ],
     imports: [
         BrowserModule,
@@ -83,7 +85,7 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
         MatFormFieldModule,
         MatDialogModule,
         MatSnackBarModule,
-        FormsModule
+        FormsModule,
     ],
     providers: [
         provideAnimationsAsync()
