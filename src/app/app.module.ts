@@ -57,7 +57,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import Angular Material modules for component use
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { MatCard, MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -75,6 +75,7 @@ import { DirectorComponent } from './director/director.component';
 import { GenreComponent } from './genre/genre.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MessageBoxComponent } from './message-box/message-box.component';
 
 /**
  * Array of route configurations for the application.
@@ -99,7 +100,8 @@ const appRoutes: Routes = [
         DirectorComponent,
         GenreComponent,
         SynopsisComponent,
-        NavbarComponent
+        NavbarComponent,
+        MessageBoxComponent
     ],
     imports: [
         BrowserModule,
@@ -115,6 +117,7 @@ const appRoutes: Routes = [
         MatIconModule,
         MatToolbarModule,
         FormsModule,
+        MatCard,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [

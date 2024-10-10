@@ -17,7 +17,7 @@ export class DirectorComponent implements OnInit {
    * @param dialog The MatDialog instance to manage the dialog
    */
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { directorName: string, directorBio: string, directorBirth: any, directorDeath: any },
+    @Inject(MAT_DIALOG_DATA) public data: { name: string, bio: string, birth: any, death: any },
     public dialog: MatDialog) { }
 
   ngOnInit(): void {

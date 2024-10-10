@@ -124,7 +124,7 @@ export class FetchApiDataService {
   // Making the api call for the Add a Movie to Favourite Movies endpoint
   addFavouriteMovies(username: string, movieID: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users/' + username + '/movies/' + movieID, {
+    return this.http.post(apiUrl + 'users/' + username + '/favorites/' + movieID, {}, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -166,7 +166,7 @@ export class FetchApiDataService {
   // Making the api call for the Delete a Movie to Favourite Movies endpoint
   deleteFavouriteMovies(username: string, movieID: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users/' + username + '/movies/' + movieID, {
+    return this.http.delete(apiUrl + 'users/' + username + '/favorites/' + movieID, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
