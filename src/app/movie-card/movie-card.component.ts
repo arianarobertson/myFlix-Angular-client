@@ -4,18 +4,21 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageBoxComponent } from '../message-box/message-box.component';
 import { DirectorComponent } from '../director/director.component';
+// This import is used to display notifications back to the user
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrl: './movie-card.component.scss'
+  styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +63,7 @@ export class MovieCardComponent implements OnInit {
         console.log(res);
         user.favoriteMovies = res.favoriteMovies;
         localStorage.setItem("user", JSON.stringify(user));
+        this.snackBar.open('Movie removed from favorites!', 'OK', { duration: 2000 });
       }, err => {
         console.error(err)
       })
@@ -74,6 +78,7 @@ export class MovieCardComponent implements OnInit {
         console.log(res);
         user.favoriteMovies = res.FavoriteMovies;
         localStorage.setItem("user", JSON.stringify(user));
+        this.snackBar.open('Movie added to favorites!', 'OK', { duration: 2000 });
       }, err => {
         console.error(err)
       })
