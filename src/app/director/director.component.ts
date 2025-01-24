@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-director',
@@ -18,10 +18,14 @@ export class DirectorComponent implements OnInit {
    */
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { name: string, bio: string, birth: any, death: any },
-    public dialog: MatDialog) { }
+    public dialogRef: MatDialogRef<DirectorComponent>) { }
 
   ngOnInit(): void {
 
+  }
+
+  closeMessageBox(): void {
+    this.dialogRef.close();
   }
 
 }

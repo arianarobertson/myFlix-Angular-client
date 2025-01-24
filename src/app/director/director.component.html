@@ -1,12 +1,17 @@
-<!doctype html>
-<div>
-    <h1>
-        Director: {{data.name}}
-    </h1>
-    <h2>
-        {{data.bio}}
-    </h2>
-    <h3>
+<!DOCTYPE html>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title class="messageBoxTitle">{{data.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-header>
+        <mat-card-title class="messageBoxTitle">{{data.bio}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
         {{data.birth}} - {{data.death}}
-    </h3>
-</div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="closeMessageBox()" color="secondary">
+            Close
+        </button>
+    </mat-card-actions>
+</mat-card>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageBoxComponent } from '../message-box/message-box.component';
 import { DirectorComponent } from '../director/director.component';
+import { GenreComponent } from '../genre/genre.component';
 // This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -87,10 +88,10 @@ export class MovieCardComponent implements OnInit {
   }
 
   showGenre(movie: any): void {
-    this.dialog.open(MessageBoxComponent, {
+    this.dialog.open(GenreComponent, {
       data: {
-        title: String(movie.genre.type).toUpperCase(),
-        content: movie.genre.description
+        title: movie.Genre.Name.toUpperCase(),
+        content: movie.Genre.Description
       },
       width: "400px"
     })

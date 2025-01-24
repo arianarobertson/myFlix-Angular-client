@@ -3,13 +3,14 @@
         <button mat-button color="primary" (click)="redirectProfile()">User Profile</button>
         <button mat-button color="primary" (click)="logout()">Logout</button>
     </nav>
-    <div style="display: flex;" layout="column">
-        <mat-card *ngFor="let movie of movies;" style="">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <mat-card *ngFor="let movie of movies;" style="max-width: 300px; box-sizing: border-box;">
             <mat-card-header>
                 <mat-card-title>{{movie.Title}}</mat-card-title>
                 <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
             </mat-card-header>
-            <img src={{movie.ImagePath}} alt={{movie.Title}} />
+            <img src="{{movie.ImagePath}}" alt="{{movie.Title}}"
+                style="width: 100%; height: auto; object-fit: cover;" />
             <mat-card-actions>
                 <button mat-button color="secondary" (click)="showGenre(movie)">
                     Genre
@@ -21,7 +22,9 @@
                     Synopsis
                 </button>
                 <mat-icon fontIcon="{{ movie.isFavorite ? 'favorite' : 'favorite_border'}}"
-                    id="{{movie._id}}-favorite-icon" (click)="modifyFavoriteMovies(movie)">favorite_border</mat-icon>
+                    id="{{movie._id}}-favorite-icon" (click)="modifyFavoriteMovies(movie)">
+                    favorite_border
+                </mat-icon>
             </mat-card-actions>
         </mat-card>
     </div>
